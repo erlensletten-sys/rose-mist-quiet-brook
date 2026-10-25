@@ -48,13 +48,16 @@ export function FrontDoor() {
 
   return (
     <main className="min-h-dvh bg-bg text-fg">
+      <div className="pride-flag-bar" />
       <div className="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 py-8 lg:grid-cols-2 lg:py-16">
         <section>
-          <p className="text-sm text-muted">18+ membership</p>
-          <h1 className="mt-3 font-display text-5xl leading-tight lg:text-6xl">Luma Circle</h1>
+          <p className="text-sm text-muted">18+ membership · queer as fuck</p>
+          <h1 className="mt-3 font-display text-5xl leading-tight lg:text-6xl bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
+            Luma Circle
+          </h1>
           <p className="mt-4 max-w-md text-lg text-muted">
             A circle for trans, nonbinary, and pan adults. Follow freely. Pay only when a creator asks. Your legal
-            name stays off the profile.
+            name stays off the profile. Pride loud, quiet no more.
           </p>
           <ul className="mt-8 max-w-md space-y-3 text-sm text-muted">
             <li>Discover, For you, and Following are ordinary pages until you open a photo or video.</li>
@@ -64,25 +67,25 @@ export function FrontDoor() {
           <div className="mt-8 flex gap-3">
             {FACES.map((face) => (
               <figure key={face.name} className="w-24">
-                <Avatar src={face.src} name={face.name} className="aspect-[3/4] w-full rounded-lg" />
+                <Avatar src={face.src} name={face.name} className="aspect-[3/4] w-full rounded-lg pride-border" />
                 <figcaption className="mt-2 text-xs text-muted">{face.name}</figcaption>
               </figure>
             ))}
           </div>
         </section>
-        <section className="rounded-xl bg-surface p-3">
+        <section className="rounded-xl bg-surface p-3 pride-border">
           <div className="rounded-md bg-bg p-4">
             <div className="grid grid-cols-2 gap-2">
               <button
                 type="button"
-                className={`h-11 rounded-md text-sm font-medium ${mode === "join" ? "bg-accent text-accent-fg" : "text-muted"}`}
+                className={`h-11 rounded-md text-sm font-medium ${mode === "join" ? "pride-gradient text-white" : "text-muted"}`}
                 onClick={() => setMode("join")}
               >
                 Create account
               </button>
               <button
                 type="button"
-                className={`h-11 rounded-md text-sm font-medium ${mode === "enter" ? "bg-accent text-accent-fg" : "text-muted"}`}
+                className={`h-11 rounded-md text-sm font-medium ${mode === "enter" ? "pride-gradient text-white" : "text-muted"}`}
                 onClick={() => setMode("enter")}
               >
                 Sign in

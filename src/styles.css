@@ -4,15 +4,16 @@
   --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Newsreader", Georgia, "Times New Roman", serif;
 
-  --color-bg: #121110;
-  --color-surface: #1c1b19;
-  --color-surface-2: #262421;
-  --color-fg: #f3f0ea;
-  --color-muted: #a39e94;
-  --color-line: #34322e;
-  --color-accent: #ebe6dc;
-  --color-accent-fg: #161513;
-  --color-danger: #d36a5a;
+  /* LGBTQ+ pride dark theme: deep night with rainbow heat */
+  --color-bg: #0c0a10;
+  --color-surface: #16131c;
+  --color-surface-2: #221e2a;
+  --color-fg: #f8f4ff;
+  --color-muted: #b8a9c9;
+  --color-line: #3a3244;
+  --color-accent: #ff6ec7; /* hot pink */
+  --color-accent-fg: #1a0a14;
+  --color-danger: #ff4d6d;
 
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -38,6 +39,7 @@
     color: var(--color-fg);
     font-family: var(--font-sans);
     line-height: 1.5;
+    background-image: radial-gradient(ellipse at top, #2a1a3a 0%, transparent 50%);
   }
 
   button:not(:disabled),
@@ -61,8 +63,41 @@
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--color-accent) 35%, transparent);
+    background: color-mix(in oklab, var(--color-accent) 45%, transparent);
   }
+}
+
+/* Pride rainbow utilities */
+.pride-gradient {
+  background: linear-gradient(90deg, #e40303 0%, #ff8c00 16%, #ffed00 33%, #008026 50%, #24408e 66%, #732982 83%, #e40303 100%);
+  background-size: 200% 100%;
+  animation: pride-shift 8s linear infinite;
+}
+
+@keyframes pride-shift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.pride-border {
+  position: relative;
+}
+.pride-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(90deg, #e40303, #ff8c00, #ffed00, #008026, #24408e, #732982);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.pride-flag-bar {
+  height: 6px;
+  background: linear-gradient(90deg, #e40303, #ff8c00, #ffed00, #008026, #24408e, #732982);
 }
 
 .scroll-row {
@@ -102,5 +137,8 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .pride-gradient {
+    animation: none;
   }
 }

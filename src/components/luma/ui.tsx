@@ -14,10 +14,10 @@ export function Button({
     <button
       className={cn(
         "inline-flex h-11 items-center justify-center gap-2 rounded-md px-4 text-sm font-medium transition-transform duration-150 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50",
-        variant === "primary" && "bg-accent text-accent-fg",
-        variant === "secondary" && "border border-line bg-surface-2 text-fg",
-        variant === "ghost" && "text-fg",
-        variant === "danger" && "bg-danger text-accent-fg",
+        variant === "primary" && "pride-gradient text-white font-semibold shadow-lg shadow-pink-500/20",
+        variant === "secondary" && "border border-line bg-surface-2 text-fg hover:border-accent/50",
+        variant === "ghost" && "text-fg hover:bg-surface-2",
+        variant === "danger" && "bg-danger text-white",
         className,
       )}
       {...props}
@@ -36,7 +36,7 @@ export function TextField({
       <span className="mb-2 block font-medium">{label}</span>
       <input
         id={id}
-        className="h-11 w-full rounded-md border border-line bg-surface-2 px-3 text-base text-fg outline-none placeholder:text-muted"
+        className="h-11 w-full rounded-md border border-line bg-surface-2 px-3 text-base text-fg outline-none placeholder:text-muted focus:border-accent"
         {...props}
       />
       {hint ? <span className="mt-2 block text-muted">{hint}</span> : null}
@@ -54,7 +54,7 @@ export function TextArea({
       <span className="mb-2 block font-medium">{label}</span>
       <textarea
         id={id}
-        className="min-h-28 w-full rounded-md border border-line bg-surface-2 px-3 py-3 text-base text-fg outline-none placeholder:text-muted"
+        className="min-h-28 w-full rounded-md border border-line bg-surface-2 px-3 py-3 text-base text-fg outline-none placeholder:text-muted focus:border-accent"
         {...props}
       />
     </label>
